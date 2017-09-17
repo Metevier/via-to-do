@@ -2,8 +2,10 @@ import React from 'react';
 import { connect } from 'react-redux'
 import '@src/scss/App.scss';
 
+import Header from './Header';
 import List from './List';
-import { getLists } from '@src/actions/listActions';
+import { getLists, selectList, setListMode } from '@src/actions/listActions';
+
 
 class UnconnectedApp extends React.Component {
   constructor(props) {
@@ -15,6 +17,7 @@ class UnconnectedApp extends React.Component {
     return (
       <div className='app'>
        <h1>VIA To-Do</h1>
+       <Header {...this.props} />
        <List {...this.props} />
       </div>
     );
@@ -23,15 +26,19 @@ class UnconnectedApp extends React.Component {
 
 const mapStateToProps = ({ lists, todos, editable, displayMode }, props) => {
   const listMode = displayMode === 'LISTS';
+  const { todos: todoItems, name: selectedListName } = todos;
   return {
-    items: listMode ? lists : todos,
+    items: listMode ? lists : todoItems,
     listMode,
-    editable
+    editable,
+    selectedListName
   };
 };
 
 const mapDispatchToProps = {
-  getLists
+  getLists,
+  selectList,
+  setListMode
 };
 
 const App = connect(

@@ -15,6 +15,22 @@ const getLists = (cb) => {
     });
 };
 
+const getList = (listId, cb) => {
+  axios.get(`${URL_PATH}/api/lists/${listId}`, {
+      params: {
+        token: TOKEN
+      }
+    })
+    .then(({ data }) => {
+      const { data: list } = data;
+      cb(list);
+    })
+    .catch(err => {
+      throw new Error(err);
+    });
+};
+
 export default {
-  getLists
+  getLists,
+  getList
 };
