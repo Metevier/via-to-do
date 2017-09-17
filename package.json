@@ -35,8 +35,7 @@
   "jest": {
     "moduleNameMapper": {
       "\\.scss$": "identity-obj-proxy",
-      "^@components(.*)$": "<rootDir>/src/components$1",
-      "^@scss(.*)$": "<rootDir>/src/scss$1"
+      "^@src(.*)$": "<rootDir>/src$1"
     }
   }
 }

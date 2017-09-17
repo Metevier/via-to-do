@@ -20,8 +20,7 @@ module.exports = {
   devtool: 'cheap-source-map',
   resolve: {
     alias: {
-      '@components': path.resolve(__dirname, 'src', 'components'),
-      '@scss': path.resolve(__dirname, 'src', 'scss')
+      '@src': path.resolve(__dirname, 'src')
     },
     extensions: ['.js']
   },
