@@ -4,7 +4,8 @@ import '@src/scss/App.scss';
 
 import Header from './Header';
 import List from './List';
-import { getLists, selectList, setListMode } from '@src/actions/listActions';
+import { getLists, selectList, setListMode, editList } from '@src/actions/listActions';
+import { toggleEditable } from '@src/actions/editableActions';
 
 
 class UnconnectedApp extends React.Component {
@@ -38,7 +39,9 @@ const mapStateToProps = ({ lists, todos, editable, displayMode }, props) => {
 const mapDispatchToProps = {
   getLists,
   selectList,
-  setListMode
+  editList,
+  setListMode,
+  toggleEditable,
 };
 
 const App = connect(

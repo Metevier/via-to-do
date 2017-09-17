@@ -1,13 +1,13 @@
 import React from 'react';
 
-const Header = ({ editable, listMode, selectedListName, setListMode }) => {
+const Header = ({ editable, listMode, selectedListName, setListMode, toggleEditable }) => {
   const headerText = listMode ? 'To-Do Lists' : selectedListName;
   const editText = editable ? 'Done' : 'Edit';
   return (
     <div>
       <button onClick={setListMode} hidden={listMode}>Back</button>
       <h2>{headerText}</h2>
-      <button>{editText}</button>
+      <button onClick={toggleEditable}>{editText}</button>
     </div>
   );
 };

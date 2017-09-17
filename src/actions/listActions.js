@@ -18,6 +18,18 @@ export const selectList = listId => dispatch => {
   });
 };
 
+export const editList = (listId, { name }) => dispatch => {
+  listApi.editList(listId, { name }, () => {
+    dispatch({
+      type: 'EDIT_LIST',
+      list: {
+        id: listId,
+        name
+      }
+    });
+  });
+};
+
 export const setListMode = () => {
   return {
     type: 'SET_LIST_MODE'

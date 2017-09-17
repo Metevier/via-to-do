@@ -3,10 +3,10 @@ import '@src/scss/List.scss';
 
 import Item from './Item';
 
-const List = ({ items, listMode, selectList }) => {
+const List = ({ items, listMode, selectList, editable, editList }) => {
   return (
     <ul className='list'>
-      {items.map(item => <Item key={item.id} listMode={listMode} selectList={selectList} {...item}/>)}
+      {items.map(item => <Item key={item.id} listMode={listMode} selectList={selectList} editable={editable} editItem={editList} {...item}/>)}
     </ul>
   );
 };

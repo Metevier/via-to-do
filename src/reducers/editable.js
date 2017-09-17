@@ -1,5 +1,7 @@
-const editable = (state = 'NON_EDITABLE', action) => {
+const editable = (state = false, action) => {
   switch (action.type) {
+    case 'TOGGLE_EDITABLE':
+      return !state;
     default:
       return false;
   };
