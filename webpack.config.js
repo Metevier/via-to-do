@@ -47,7 +47,8 @@ module.exports = {
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
     new webpack.DefinePlugin({
-      TOKEN: JSON.stringify(process.env.TOKEN)
+      TOKEN: JSON.stringify(process.env.TOKEN),
+      URL_PATH: JSON.stringify(process.env.URL)
     })
   ],
   devServer: {
