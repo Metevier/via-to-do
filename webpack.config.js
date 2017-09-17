@@ -23,7 +23,7 @@ module.exports = {
       '@components': path.resolve(__dirname, 'src', 'components'),
       '@scss': path.resolve(__dirname, 'src', 'scss')
     },
-    extensions: ['.js', '.scss']
+    extensions: ['.js']
   },
   module: {
     rules: [
