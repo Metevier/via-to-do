@@ -1,8 +1,11 @@
 const path = require('path');
 const webpack = require('webpack');
+const dotenv = require('dotenv');
 
 const HOST = process.env.HOST || 'localhost';
 const PORT = process.env.PORT || 3000;
+
+dotenv.config();
 
 module.exports = {
   entry: {
@@ -42,7 +45,10 @@ module.exports = {
     ]
   },
   plugins: [
-    new webpack.HotModuleReplacementPlugin()
+    new webpack.HotModuleReplacementPlugin(),
+    new webpack.DefinePlugin({
+      TOKEN: JSON.stringify(process.env.TOKEN)
+    })
   ],
   devServer: {
     contentBase: path.join(__dirname, 'public'),
