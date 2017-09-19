@@ -1,8 +1,8 @@
 {
   "name": "via-to-do",
   "version": "1.0.0",
-  "description": "Simple To-Do Front End for VIAStudio",
-  "main": "index.js",
+  "description": "Simple To-Do Front End",
+  "main": "src/index.js",
   "scripts": {
     "dev": "webpack-dev-server"
   },
