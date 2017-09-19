@@ -18,6 +18,7 @@ const TodoItem = ({ id, name, completed, editTodo, deleteTodo, editable }) => {
     <li>
       <input type='checkbox' checked={!!completed} onChange={toggleComplete}/>
       <input defaultValue={name} onBlur={changeName} onSubmit={changeName} disabled={!editable}/>
+      <button hidden={!editable} onClick={deleteTodo.bind(null, id)}>X</button>
     </li>
   );
 };

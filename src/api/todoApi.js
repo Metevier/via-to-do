@@ -42,12 +42,9 @@ const editTodo = (todoId, { name, completed }, cb) => {
 };
 
 const deleteTodo = (todoId, cb) => {
-  axios.put(`${URL_PATH}/api/todos/${todoId}`, {
+  axios.delete(`${URL_PATH}/api/todos/${todoId}`, {
     params: {
       token: TOKEN
-    },
-    data: {
-      id: todoId
     }
   })
   .then(({ data }) => {

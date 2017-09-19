@@ -43,7 +43,7 @@ class AddItem extends React.Component {
   render() {
     const { listMode, editable } = this.props;
     const { value } = this.state;
-    const placeholder = `Add new ${listMode ? 'List' : 'To-To'}`;
+    const placeholder = `Add new ${listMode ? 'List' : 'To-Do'}`;
   
     return (
       <form onSubmit={this.addItem} hidden={editable}>

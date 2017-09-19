@@ -70,12 +70,9 @@ const editList = (listId, { name }, cb) => {
 };
 
 const deleteList = (listId, cb) => {
-  axios.put(`${URL_PATH}/api/lists/${listId}`, {
+  axios.delete(`${URL_PATH}/api/lists/${listId}`, {
     params: {
       token: TOKEN
-    },
-    data: {
-      id: listId
     }
   })
   .then(({ data }) => {
