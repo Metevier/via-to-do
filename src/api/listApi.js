@@ -32,13 +32,14 @@ const getList = (listId, cb) => {
 
 const addList = (name, cb) => {
   axios.post(`${URL_PATH}/api/lists`, {
-    params: {
-      token: TOKEN
-    },
-    data: {
       name
+    },
+    {
+      params: {
+        token: TOKEN
+      }
     }
-  })
+  )
   .then(({ data }) => {
     const { data: list } = data;
     cb(list);

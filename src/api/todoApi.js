@@ -1,15 +1,18 @@
 import axios from 'axios';
 
-const addTodo = (name, cb) => {
+const addTodo = (name, listId, cb) => {
   axios.post(`${URL_PATH}/api/todos`, {
-    params: {
-      token: TOKEN
+      name,
+      lists_id: listId
     },
-    data: {
-      name
+    {
+      params: {
+        token: TOKEN
+      }
     }
-  })
+  )
   .then(({ data }) => {
+    const { data: todo } = data;
     cb(todo);
   })
   .catch(err => {
@@ -17,11 +20,12 @@ const addTodo = (name, cb) => {
   });
 };
 
-const editTodo = (todoId, { name }, cb) => {
+const editTodo = (todoId, { name, completed }, cb) => {
   axios.put(`${URL_PATH}/api/todos/${todoId}`, 
     {
       id: todoId,
-      name
+      name,
+      completed
     },
     {
       params: {

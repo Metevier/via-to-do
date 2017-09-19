@@ -4,7 +4,7 @@ import '@src/scss/App.scss';
 
 import Header from './Header';
 import List from './List';
-import { getLists, selectList, editList } from '@src/actions/listActions';
+import { getLists } from '@src/actions/listActions';
 import { toggleEditable, setFilter, setListMode } from '@src/actions/displayModeActions';
 
 
@@ -27,7 +27,7 @@ class UnconnectedApp extends React.Component {
 
 const filterTodos = (todos, filter) => {
   const showCompleteTodos = filter === 'COMPLETE';
-  return todos.filter(item => !!item.complete === showCompleteTodos);
+  return todos.filter(item => !!item.completed === showCompleteTodos);
 };
 
 const mapStateToProps = ({ lists, todos, displayModes }, props) => {
@@ -52,8 +52,6 @@ const mapStateToProps = ({ lists, todos, displayModes }, props) => {
 
 const mapDispatchToProps = {
   getLists,
-  selectList,
-  editList,
   setListMode,
   toggleEditable,
   setFilter
