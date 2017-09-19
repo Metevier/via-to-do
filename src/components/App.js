@@ -5,7 +5,7 @@ import '@src/scss/App.scss';
 import Header from './Header';
 import List from './List';
 import { getLists, selectList, setListMode, editList } from '@src/actions/listActions';
-import { toggleEditable } from '@src/actions/editableActions';
+import { toggleEditable, setFilter } from '@src/actions/displayModeActions';
 
 
 class UnconnectedApp extends React.Component {
@@ -25,14 +25,28 @@ class UnconnectedApp extends React.Component {
   }
 };
 
-const mapStateToProps = ({ lists, todos, editable, displayMode }, props) => {
-  const listMode = displayMode === 'LISTS';
+const filterTodos = (todos, filter) => {
+  const showCompleteTodos = filter === 'COMPLETE';
+  return todos.filter(item => !!item.complete === showCompleteTodos);
+};
+
+const mapStateToProps = ({ lists, todos, displayModes }, props) => {
+  const { listMode, editable, filter } = displayModes
   const { todos: todoItems, name: selectedListName } = todos;
+  
+  let items = [];
+  if (listMode) {
+    items = lists;
+  } else {
+    items = filter === 'ALL' ? todoItems : filterTodos(todoItems, filter);
+  }
+
   return {
-    items: listMode ? lists : todoItems,
+    items,
     listMode,
     editable,
-    selectedListName
+    selectedListName,
+    filter
   };
 };
 
@@ -42,6 +56,7 @@ const mapDispatchToProps = {
   editList,
   setListMode,
   toggleEditable,
+  setFilter
 };
 
 const App = connect(
