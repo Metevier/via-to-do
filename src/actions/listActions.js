@@ -30,8 +30,22 @@ export const editList = (listId, { name }) => dispatch => {
   });
 };
 
-export const setListMode = () => {
-  return {
-    type: 'SET_LIST_MODE'
-  };
+export const addList = (name) => dispatch => {
+  listApi.addList(name, (list) => {
+    dispatch({
+      type: 'ADD_LIST',
+      list
+    });
+  });
+};
+
+export const deleteList = (listId) => dispatch => {
+  listApi.deleteList(listId, () => {
+    dispatch({
+      type: 'DELETE_LIST',
+      list: {
+        id: listId
+      }
+    });
+  });
 };

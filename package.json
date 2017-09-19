@@ -4,14 +4,12 @@
   "description": "Simple To-Do Front End for VIAStudio",
   "main": "index.js",
   "scripts": {
-    "dev": "webpack-dev-server",
-    "test": "jest"
+    "dev": "webpack-dev-server"
   },
   "author": "Tyler Metevier",
   "license": "ISC",
   "dependencies": {
     "axios": "^0.16.2",
-    "object-assign": "^4.1.1",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
     "react-redux": "^5.0.6",
@@ -20,28 +18,17 @@
   },
   "devDependencies": {
     "babel-core": "^6.26.0",
-    "babel-jest": "^21.0.2",
     "babel-loader": "^7.1.2",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "babel-preset-env": "^1.6.0",
     "babel-preset-react": "^6.24.1",
     "css-loader": "^0.28.7",
     "dotenv": "^4.0.0",
-    "enzyme": "^2.9.1",
-    "identity-obj-proxy": "^3.0.0",
-    "jest": "^21.1.0",
     "node-sass": "^4.5.3",
     "react-hot-loader": "^3.0.0-beta.7",
-    "react-test-renderer": "^15.6.1",
     "sass-loader": "^6.0.6",
     "style-loader": "^0.18.2",
     "webpack": "^3.6.0",
     "webpack-dev-server": "^2.8.2"
-  },
-  "jest": {
-    "moduleNameMapper": {
-      "\\.scss$": "identity-obj-proxy",
-      "^@src(.*)$": "<rootDir>/src$1"
-    }
   }
 }

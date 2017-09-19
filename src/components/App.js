@@ -4,8 +4,8 @@ import '@src/scss/App.scss';
 
 import Header from './Header';
 import List from './List';
-import { getLists, selectList, setListMode, editList } from '@src/actions/listActions';
-import { toggleEditable, setFilter } from '@src/actions/displayModeActions';
+import { getLists, selectList, editList } from '@src/actions/listActions';
+import { toggleEditable, setFilter, setListMode } from '@src/actions/displayModeActions';
 
 
 class UnconnectedApp extends React.Component {

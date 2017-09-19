@@ -1,9 +1,10 @@
-import objAssign from 'object-assign';
-
 const updateLists = (lists, listItem) => {
   return lists.map(list => {
     if (list.id === listItem.id) {
-      return objAssign({}, list, listItem);
+      return {
+        ...list,
+        ...listItem
+      };
     }
 
     return list;
@@ -16,6 +17,13 @@ const lists = (state = [], action) => {
       return action.lists;
     case 'EDIT_LIST':
       return updateLists(state, action.list);
+    case 'ADD_LIST':
+      return [
+        action.list,
+        ...state
+      ];
+    case 'DELETE_LIST':
+      return state.filter(list => list.id !== action.list.id);
     default:
       return state;
   };

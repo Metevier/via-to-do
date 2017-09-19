@@ -4,6 +4,12 @@ export const toggleEditable = () => {
   };
 };
 
+export const setListMode = () => {
+  return {
+    type: 'SET_LIST_MODE'
+  };
+};
+
 export const setFilter = filter => {
   return {
     type: `SET_FILTER_${filter}`,

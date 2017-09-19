@@ -40,7 +40,6 @@ const addList = (name, cb) => {
     }
   })
   .then(({ data }) => {
-    console.log(data);
     const { data: list } = data;
     cb(list);
   })
@@ -50,7 +49,6 @@ const addList = (name, cb) => {
 };
 
 const editList = (listId, { name }, cb) => {
-  console.log(name);
   axios.put(`${URL_PATH}/api/lists/${listId}`, 
     {
       id: listId,
@@ -80,7 +78,6 @@ const deleteList = (listId, cb) => {
     }
   })
   .then(({ data }) => {
-    console.log(data);
     const { data: list } = data;
     cb(list);
   })
