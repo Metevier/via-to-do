@@ -14,11 +14,17 @@ const TodoItem = ({ id, name, completed, editTodo, deleteTodo, editable }) => {
     editTodo(id, { name, completed: isComplete ? 0 : 1 });
   };
 
+  const checkboxId = `todo-item-${id}`;
+
   return (
-    <li>
-      <input type='checkbox' checked={!!completed} onChange={toggleComplete}/>
-      <input defaultValue={name} onBlur={changeName} onSubmit={changeName} disabled={!editable}/>
-      <button hidden={!editable} onClick={deleteTodo.bind(null, id)}>X</button>
+    <li className='item'>
+      <input type='checkbox' id={checkboxId} checked={!!completed} onChange={toggleComplete}/>
+      <label htmlFor={checkboxId} className={`${editable ? 'visually-hidden' : ''}`}>
+        <span>{name}</span>
+        <span className='visually-hidden'>To-Do Item</span>
+      </label>
+      <input className='change-title' defaultValue={name} onBlur={changeName} hidden={!editable}/>
+      <button aria-label={`Delete To-Do Item ${name}`} hidden={!editable} onClick={deleteTodo.bind(null, id)}>X</button>
     </li>
   );
 };

@@ -7,11 +7,18 @@ import { addTodo } from '@src/actions/todoActions';
 class AddItem extends React.Component {
   constructor(props) {
     super(props);
+    this.input = null;
     this.addItem = this.addItem.bind(this);
     this.updateValue = this.updateValue.bind(this);
     this.state = {
       value: ''
     };
+  }
+
+  componentDidUpdate(prevProps) {
+    if (prevProps.listMode !== this.props.listMode) {
+      this.input.focus();
+    }
   }
 
   addItem(event) {
@@ -47,7 +54,7 @@ class AddItem extends React.Component {
   
     return (
       <form onSubmit={this.addItem} hidden={editable}>
-        <input onBlur={this.addItem} onChange={this.updateValue} value={value} placeholder={placeholder}/>
+        <input ref={input => this.input = input} className='add-item' onBlur={this.addItem} onChange={this.updateValue} value={value} placeholder={placeholder}/>
       </form>
     );
   }

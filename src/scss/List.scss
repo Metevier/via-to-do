@@ -1,3 +1,44 @@
 .list {
-  list-style: none;
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .add-item, .item {
+    border: solid black 1px;
+    box-sizing: border-box;
+    padding: 12px;
+    width: 100%;
+  }
+
+  .add-item {
+    border-bottom: none;
+    font-size: 20px;
+  }
+
+  .item {
+    border-top: none;
+    font-size: 16px;
+
+    &:first-child {
+      border-top: solid black 1px;
+    }
+  }
+
+  .change-title {
+    border: none;
+    font-size: 16px;
+  }
+
+  .list-title {
+    display: inline-block;
+    text-decoration: none;
+    width: 100%;
+
+    &:visited {
+      color: inherit;
+    }
+  }
+
 }

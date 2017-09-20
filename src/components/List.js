@@ -8,9 +8,9 @@ import TodoItem from './TodoItem';
 const List = ({ items, listMode, editable }) => {
   const Item = listMode ? ListItem : TodoItem;
   return (
-    <div>
+    <div className='list'>
       <AddItem listMode={listMode} editable={editable}/>
-      <ul className='list'>
+      <ul>
         {items.map(item => <Item key={item.id} listMode={listMode} editable={editable} {...item}/>)}
       </ul>
     </div>

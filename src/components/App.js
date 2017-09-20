@@ -17,7 +17,6 @@ class UnconnectedApp extends React.Component {
   render () {
     return (
       <div className='app'>
-       <h1>VIA To-Do</h1>
        <Header {...this.props} />
        <List {...this.props} />
       </div>

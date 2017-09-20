@@ -5,6 +5,8 @@ import { selectList, editList, deleteList } from '@src/actions/listActions';
 
 const ListItem = ({ id, name, editable, selectList, editList, deleteList }) => {
   const selectItem = event => {
+    event.preventDefault();
+
     if (!editable) {
       selectList(id);
     }
@@ -14,10 +16,17 @@ const ListItem = ({ id, name, editable, selectList, editList, deleteList }) => {
     editList(id, { name: event.target.value });
   };
 
+  const ListElement = editable ?
+    <input className='change-title' defaultValue={name} onBlur={changeName}/> :
+    <a href='' className='list-title' onClick={selectItem}>
+      <span>{name}</span>
+      <span className='visually-hidden'>To-Do List</span>
+    </a>;
+
   return (
-    <li onClick={selectItem}>
-      <input defaultValue={name} onBlur={changeName} onSubmit={changeName} disabled={!editable}/>
-      <button hidden={!editable} onClick={deleteList.bind(null, id)}>X</button>
+    <li className='item'>
+      {ListElement}
+      <button aria-label={`Delete To-Do List ${name}`} hidden={!editable} onClick={deleteList.bind(null, id)}>X</button>
     </li>
   );
 };

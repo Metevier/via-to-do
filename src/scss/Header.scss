@@ -1,0 +1,16 @@
+.header {
+  .info, .filter {
+    display: flex;
+  }
+  
+  .btn-wrapper {
+    flex: 1 1 0px;
+    align-self: center;
+    text-align: center;
+  }
+
+  .title {
+    flex: 5 1 0px;
+    text-align: center;
+  }
+}
