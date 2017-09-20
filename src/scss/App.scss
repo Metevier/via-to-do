@@ -1,5 +1,11 @@
+@import 'colors';
+
 .app {
-  font-family: 'Helvetica';
+  border: 1px $border solid;
+  border-radius: 3px;
+  color: $text;
+  font-family: 'Rosario', 'Helvetica', sans-serif;
+  line-height: 30px;
   margin: 0 auto;
   max-width: 400px;
 

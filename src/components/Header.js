@@ -10,7 +10,7 @@ const Header = ({ editable, listMode, selectedListName, setListMode, toggleEdita
     <div className='header'>
       <div className='info'>
         <div className='btn-wrapper'>
-          <button onClick={setListMode} hidden={listMode} aria-label='Go Back to Lists'>Back</button>
+          <button onClick={setListMode} hidden={listMode || editable} aria-label='Go Back to Lists'>Back</button>
         </div>
         <h2 className='title'>{headerText}</h2>
         <div className='btn-wrapper'>

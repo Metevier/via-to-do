@@ -1,3 +1,5 @@
+@import 'colors';
+
 .list {
   ul {
     list-style: none;
@@ -5,30 +7,41 @@
     padding: 0;
   }
 
+  .add-item {
+    border: none;
+    font-family: 'Roboto', 'Helvetica', sans-serif;
+    font-size: 24px;
+  }
+
   .add-item, .item {
-    border: solid black 1px;
+    border-top: solid $border 1px;
     box-sizing: border-box;
     padding: 12px;
     width: 100%;
   }
 
-  .add-item {
-    border-bottom: none;
-    font-size: 20px;
-  }
-
   .item {
-    border-top: none;
-    font-size: 16px;
+    display: flex;
+    font-size: 20px;
 
-    &:first-child {
-      border-top: solid black 1px;
+    input[type="checkbox"] {
+      align-self: center;
+      margin-right: 15px;
+    }
+
+    &:nth-child(odd) {
+      background-color: $primary;
+
+      .change-title {
+        background-color: $primary;
+      }
     }
   }
 
   .change-title {
     border: none;
-    font-size: 16px;
+    font-size: 20px;
+    width: 100%;
   }
 
   .list-title {
@@ -37,7 +50,7 @@
     width: 100%;
 
     &:visited {
-      color: inherit;
+      color: $text;
     }
   }
 

@@ -54,7 +54,10 @@ class AddItem extends React.Component {
   
     return (
       <form onSubmit={this.addItem} hidden={editable}>
-        <input ref={input => this.input = input} className='add-item' onBlur={this.addItem} onChange={this.updateValue} value={value} placeholder={placeholder}/>
+        <label className='visually-hidden' htmlFor='add-item-input'>{placeholder}</label>
+        <input id='add-item-input' ref={input => this.input = input} 
+          className='add-item' onBlur={this.addItem} onChange={this.updateValue} 
+          value={value} placeholder={placeholder}/>
       </form>
     );
   }
