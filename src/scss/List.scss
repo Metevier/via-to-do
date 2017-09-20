@@ -26,6 +26,7 @@
 
     input[type="checkbox"] {
       align-self: center;
+      cursor: pointer;
       margin-right: 15px;
     }
 
@@ -40,7 +41,9 @@
 
   .change-title {
     border: none;
+    font-family: 'Rosario', 'Helvetica', sans-serif;
     font-size: 20px;
+    text-decoration: underline dashed;
     width: 100%;
   }
 
@@ -54,4 +57,10 @@
     }
   }
 
+  .delete-button {
+    background-color: $button-dark;
+    border-radius: 3px;
+    height: 40px;
+    margin: 0px 3px;
+  }
 }

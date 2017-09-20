@@ -14,17 +14,22 @@ const TodoItem = ({ id, name, completed, editTodo, deleteTodo, editable }) => {
     editTodo(id, { name, completed: isComplete ? 0 : 1 });
   };
 
-  const checkboxId = `todo-item-${id}`;
+  const checkboxId = `todo-item-checkbox-${id}`;
+  const todoId = `edit-todo-item-${id}`;
 
   return (
     <li className='item'>
-      <input type='checkbox' id={checkboxId} checked={!!completed} onChange={toggleComplete}/>
+      <input type='checkbox' id={checkboxId} checked={!!completed} onChange={toggleComplete} hidden={editable}/>
       <label htmlFor={checkboxId} className={`${editable ? 'visually-hidden' : ''}`}>
         <span>{name}</span>
         <span className='visually-hidden'>To-Do Item</span>
       </label>
-      <input className='change-title' defaultValue={name} onBlur={changeName} hidden={!editable}/>
-      <button aria-label={`Delete To-Do Item ${name}`} hidden={!editable} onClick={deleteTodo.bind(null, id)}>X</button>
+      <label htmlFor={todoId} className='visually-hidden'>
+        {`Edit ${name} To-Do Item`}
+      </label>
+      <input id={todoId} className='change-title' defaultValue={name} onBlur={changeName} hidden={!editable}/>
+      <button aria-label={`Delete To-Do Item ${name}`} className='delete-button'
+        hidden={!editable} onClick={deleteTodo.bind(null, id)}>Delete</button>
     </li>
   );
 };
